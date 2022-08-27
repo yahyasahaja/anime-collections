@@ -1,0 +1,195 @@
+{
+  "data": {
+    "Page": {
+      "pageInfo": {
+        "total": 5000,
+        "currentPage": 1,
+        "lastPage": 250,
+        "hasNextPage": true,
+        "perPage": 20
+      },
+      "media": [
+        {
+          "id": 1,
+          "title": {
+            "romaji": "Cowboy Bebop"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1-CXtrrkMpJ8Zq.png"
+          }
+        },
+        {
+          "id": 5,
+          "title": {
+            "romaji": "Cowboy Bebop: Tengoku no Tobira"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx5-NozHwXWdNLCz.jpg"
+          }
+        },
+        {
+          "id": 6,
+          "title": {
+            "romaji": "TRIGUN"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx6-Zzun7PHNNgPt.jpg"
+          }
+        },
+        {
+          "id": 7,
+          "title": {
+            "romaji": "Witch Hunter ROBIN"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx7-6uh1fPvbgS9t.png"
+          }
+        },
+        {
+          "id": 8,
+          "title": {
+            "romaji": "Bouken Ou Beet"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b8-ReS3TwSgrDDi.jpg"
+          }
+        },
+        {
+          "id": 15,
+          "title": {
+            "romaji": "Eyeshield 21"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15-A4F2t0TgWoi4.png"
+          }
+        },
+        {
+          "id": 16,
+          "title": {
+            "romaji": "Hachimitsu to Clover"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16-5fJZ2Sy2ThRA.jpg"
+          }
+        },
+        {
+          "id": 17,
+          "title": {
+            "romaji": "Hungry Heart: Wild Striker"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx17-6kqIbdUk3dgi.png"
+          }
+        },
+        {
+          "id": 18,
+          "title": {
+            "romaji": "Initial D FOURTH STAGE"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b18-r7IirVmwP89u.jpg"
+          }
+        },
+        {
+          "id": 19,
+          "title": {
+            "romaji": "MONSTER"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19-ham53gnijfiN.jpg"
+          }
+        },
+        {
+          "id": 20,
+          "title": {
+            "romaji": "NARUTO"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20-YJvLbgJQPCoI.jpg"
+          }
+        },
+        {
+          "id": 21,
+          "title": {
+            "romaji": "ONE PIECE"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
+          }
+        },
+        {
+          "id": 22,
+          "title": {
+            "romaji": "Tennis no Ouji-sama"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx22-8Qg3NZXH6asP.png"
+          }
+        },
+        {
+          "id": 23,
+          "title": {
+            "romaji": "Ring ni Kakero 1"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx23-OwtP69d9B9kg.jpg"
+          }
+        },
+        {
+          "id": 24,
+          "title": {
+            "romaji": "School Rumble"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx24-InbFkgWGvqIK.png"
+          }
+        },
+        {
+          "id": 25,
+          "title": {
+            "romaji": "Sunabouzu"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx25-H1etX7IgfFtQ.jpg"
+          }
+        },
+        {
+          "id": 26,
+          "title": {
+            "romaji": "TEXHNOLYZE"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx26-u2SawALYH3w3.jpg"
+          }
+        },
+        {
+          "id": 27,
+          "title": {
+            "romaji": "Trinity Blood"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx27-MOAaiBHHLfOY.png"
+          }
+        },
+        {
+          "id": 28,
+          "title": {
+            "romaji": "Yakitate!! Japan"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx28-QuKcZpUjTXzV.png"
+          }
+        },
+        {
+          "id": 29,
+          "title": {
+            "romaji": "Zipang"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx29-0PsnJVadMG7k.jpg"
+          }
+        }
+      ]
+    }
+  }
+}

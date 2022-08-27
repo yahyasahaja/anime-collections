@@ -1,16 +1,29 @@
 import { render, screen } from '@testing-library/react';
-import AnimeList from './AnimeList';
+import AnimeList, { PAGE_MEDIA_QUERY } from './AnimeList';
 import { buildRenderWithRouter } from 'utils/test/build-render';
+import { PAGE_LIMIT } from 'configs/constants';
+import pageMediaQueryResult from 'stubs/page-media-query-1.json';
 
 describe('AnimeList', () => {
-  test('Renders AnimeCard', () => {
+  test('Renders AnimeCard', async () => {
     render(buildRenderWithRouter({
       path: '/animes',
       component: <AnimeList />,
+      mocks: [
+        {
+          request: {
+            query: PAGE_MEDIA_QUERY,
+            variables: {
+              page: 1,
+              perPage: PAGE_LIMIT,
+            }
+          },
+          result: pageMediaQueryResult
+        }
+      ],
     }));
 
-    const mediaCard1 = screen.getByText(/Media 1/i);
-    expect(mediaCard1).toBeInTheDocument();
+    expect(await screen.findByText('Cowboy Bebop')).toBeInTheDocument();
   });
 })
 

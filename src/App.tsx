@@ -1,3 +1,4 @@
+import Spinner from 'components/Spinner';
 import React, { Suspense } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -5,7 +6,7 @@ const AnimeList = React.lazy(() => import('./pages/AnimeList'));
 
 export default function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/animes" element={<AnimeList />} />
         <Route path="/animes/:id" element={<AnimeList />} />
