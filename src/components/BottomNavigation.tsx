@@ -26,7 +26,7 @@ const BottomNavigation = ({ routes }: Props) => {
       border-top: 1px solid #eaeaea;
       background: var(--color-subdued);
     `}>
-      {routes.map(({ path, title, icon }) => (
+      {routes.map(({ path, title, icon }, index) => (
         <Link
           css={css`
             display: flex;
@@ -35,6 +35,7 @@ const BottomNavigation = ({ routes }: Props) => {
             flex: 1;
           `}
           to={path}
+          key={index}
         >
           <div css={css`display: flex`}>{icon}</div>
           <span css={css`font-size: var(--font-size-small)`}>{ title }</span>
