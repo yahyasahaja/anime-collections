@@ -7,8 +7,18 @@ export interface MediaTitle {
 }
 
 export interface Media {
+  id: number
+  idMal: number
   coverImage: MediaCoverImage
+  bannerImage: string
   title: MediaTitle
+  description: string
+  episodes: number
+  genres: string[]
+}
+
+export interface MediaQueryData {
+  Media: Media
 }
 
 export interface PageInfo {

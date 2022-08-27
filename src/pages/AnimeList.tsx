@@ -23,6 +23,7 @@ query ($page: Int, $perPage: Int) {
     }
     media {
       id
+      idMal
       title {
         romaji
       }
@@ -44,10 +45,10 @@ export default function AnimeList() {
   const hasMore = pagination?.hasNextPage || false;
 
   React.useEffect(() => {
-    const addedAnimes = [...animes, ...items] as Media[];
+    const addedAnimes = [...animes, ...items];
     setAnimes(addedAnimes);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items, setAnimes])
+  }, [items, setAnimes]);
 
   const fetchNext = React.useCallback(() => {
     const nextPage = page + 1;
@@ -57,18 +58,15 @@ export default function AnimeList() {
 
   return (
     <BasePageLayout title="Anime List" >
-      <section css={css`
-        padding: 10px;
-      `}>
-        <InfiniteScroll
-          dataLength={animes.length}
-          next={fetchNext}
-          hasMore={hasMore}
-          loader={<Spinner />}
-        >
-          { animes.map((media: Media, i) => <MediaCard key={i} media={media}/>) }
-        </InfiniteScroll>
-      </section>
+      <InfiniteScroll
+        css={css`padding: 10px`}
+        dataLength={animes.length}
+        next={fetchNext}
+        hasMore={hasMore}
+        loader={<Spinner />}
+      >
+        { animes.map((media: Media, i) => <MediaCard key={i} media={media}/>) }
+      </InfiniteScroll>
       { loading && <Spinner /> }
     </BasePageLayout>
   )
