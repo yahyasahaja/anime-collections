@@ -16,8 +16,12 @@ type Props = {
 const BottomNavigation = ({ routes }: Props) => {
   const { pathname } = useLocation();
 
+  const isPathMatch = (pathname: string, path: string) => {
+    return pathname.includes(path);
+  }
+
   const getIcon = ({ path, icon, selectedIcon }: NavigationRoute) => {
-    if (pathname.includes(path)) return selectedIcon || icon;
+    if (isPathMatch(pathname, path)) return selectedIcon || icon;
     return icon;
   }
 
@@ -36,6 +40,7 @@ const BottomNavigation = ({ routes }: Props) => {
     `}>
       {routes.map((navigationRoute, index) => {
         const { path, title } =  navigationRoute;
+        const isPathMatchValue = isPathMatch(pathname, path);
         const icon = getIcon(navigationRoute);
         return (
           <Link
@@ -49,7 +54,15 @@ const BottomNavigation = ({ routes }: Props) => {
             key={index}
           >
             <div css={css`display: flex`}>{icon}</div>
-            <span css={css`font-size: var(--font-size-small)`}>{ title }</span>
+            <span
+              css={css`
+                font-size: var(--font-size-small);
+                color: var(--current-color);
+              `}
+              style={{
+                '--current-color': `var(--color-${isPathMatchValue ? 'primary' : 'base'})`
+              } as React.CSSProperties}
+            >{ title }</span>
           </Link>
         )
       })}

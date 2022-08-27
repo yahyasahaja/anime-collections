@@ -14,11 +14,13 @@ const routes = [
     title: 'Anime',
     path: '/animes',
     icon: <MovieIcon css={css`width: 24px`} fill="var(--color-secondary)" />,
+    selectedIcon: <MovieIcon css={css`width: 24px`} fill="var(--color-primary)" />,
   },
   {
     title: 'Collections',
     path: '/collections',
-    icon: <CollectionIcon css={css`width: 24px`} fill="var(--color-primary)" />,
+    icon: <CollectionIcon css={css`width: 24px`} fill="var(--color-secondary)" />,
+    selectedIcon: <CollectionIcon css={css`width: 24px`} fill="var(--color-primary)" />,
   },
 ]
 
