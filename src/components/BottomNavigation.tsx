@@ -12,7 +12,7 @@ type Props = {
   routes: NavigationRoute[]
 }
 
-export default ({ routes }: Props) => {
+const BottomNavigation = ({ routes }: Props) => {
   return (
     <nav css={css`
       position: fixed;
@@ -22,8 +22,9 @@ export default ({ routes }: Props) => {
       display: flex;
       align-items: center;
       width: 100%;
-      height: 56px;
+      height: var(--height-bottom-navigation);
       border-top: 1px solid #eaeaea;
+      background: var(--color-subdued);
     `}>
       {routes.map(({ path, title, icon }) => (
         <Link
@@ -35,10 +36,12 @@ export default ({ routes }: Props) => {
           `}
           to={path}
         >
-          <div>{icon}</div>
-          <span css={css`font-size: 12px`}>{ title }</span>
+          <div css={css`display: flex`}>{icon}</div>
+          <span css={css`font-size: var(--font-size-small)`}>{ title }</span>
         </Link>
       ))}
     </nav>
   )
 }
+
+export default BottomNavigation;

@@ -2,6 +2,7 @@
 import { css } from '@emotion/react';
 import BottomNavigation from '../components/BottomNavigation';
 import MovieIcon from '../components/MovieIcon';
+import CollectionIcon from '../components/CollectionIcon';
 
 type Props = {
   children: React.ReactNode,
@@ -13,29 +14,33 @@ const routes = [
   {
     title: 'Anime',
     path: '/animes',
-    icon: <MovieIcon css={css`width: 30px`} />,
+    icon: <MovieIcon css={css`width: 24px`} fill="var(--color-secondary)" />,
   },
   {
     title: 'Collections',
     path: '/collections',
-    icon: <MovieIcon css={css`width: 30px`} stroke="blue" />,
+    icon: <CollectionIcon css={css`width: 24px`} fill="var(--color-primary)" />,
   },
 ]
 
-export default ({ children, title }: Props) => {
+const BasePageLayout = ({ children, title }: Props) => {
   return (
     <div css={css`
       max-width: 480px;
       margin: auto;
-      padding-bottom: 56px;
+      padding-bottom: var(--height-bottom-navigation);
+      min-height: calc(200vh - var(--height-bottom-navigation));
+      background: white;
     `}>
       <div css={css`
         height: 36px;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        position: sticky;
+        top: 0;
         border-bottom: 1px solid #eaeaea;
+        background: var(--color-subdued);
       `}>
         <h1>{ title }</h1>
       </div>
@@ -45,4 +50,6 @@ export default ({ children, title }: Props) => {
       <BottomNavigation routes={routes} />
     </div>
   )
-}
+};
+
+export default BasePageLayout;
