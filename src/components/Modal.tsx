@@ -1,7 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-const Modal = ({ children }: React.PropsWithChildren) => {
+type Props = React.PropsWithChildren<{
+  title: string
+}>
+
+const Modal = ({ children, title }: Props) => {
   return (
     <div css={css`
       position: fixed;
@@ -28,7 +32,7 @@ const Modal = ({ children }: React.PropsWithChildren) => {
           border-bottom: 1px solid #cecece;
           color: var(--color-secondary);
           padding: 10px;
-        `}>Title</div>
+        `}>{title}</div>
         <div>
           { children }
         </div>

@@ -41,9 +41,9 @@ export interface PageQueryData {
 
 // collections
 export interface MediaCollection {
-  [idMal?: string]: Media
+  [idMal: string]: Media
 }
 
 export interface Collections {
-  [collectionName?: string]: MediaCollection
+  [collectionName: string]: MediaCollection
 }

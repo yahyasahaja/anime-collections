@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { useQuery, gql } from '@apollo/client';
 import { sanitize } from 'dompurify';
-import { MediaQueryData } from 'types/models';
+import { Media, MediaQueryData } from 'types/models';
 
 import DetailPageLayout from "layouts/DetailPageLayout";
 import Spinner from 'components/Spinner';
@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Button from 'components/Button';
 import CollectionIcon from 'icons/CollectionIcon';
-import Modal from 'components/Modal';
+import AddAnimeToCollectionModal from 'components/AddAnimeToCollectionModal';
 
 export const PAGE_MEDIA_QUERY = gql`
 query ($idMal: Int) {
@@ -39,6 +39,7 @@ export default function AnimeDetail() {
   const [ isAddCollectionModalOpened, setIsAddCollectionModalOpened ] = React.useState(false);
 
   const media = React.useMemo(() => data?.Media, [data]);
+  const medias = React.useMemo(() => [media], [media]);
 
   return (
     <DetailPageLayout title={media?.title?.romaji || 'Anime Detail'} >
@@ -109,30 +110,10 @@ export default function AnimeDetail() {
         </div>
       ) }
 
-      {isAddCollectionModalOpened && (
-        <Modal>
-          <div>
-            list
-          </div>
-          <div css={css`
-            width: 100%;
-            display: flex;
-            height: 40px;
-            border-top: 1px solid #cecece;
-          `}>
-            <button onClick={() => setIsAddCollectionModalOpened(false)} css={css`
-              color: var(--color-primary);
-              font-weight: bold;
-              width: 100%;
-              border: none;
-              background: var(--color-subdued);
-              &:active {
-                opacity: 0.5;
-              }
-            `}>Done</button>
-          </div>
-        </Modal>
-      )}
+      {isAddCollectionModalOpened && media && <AddAnimeToCollectionModal
+        medias={medias}
+        onDone={() => setIsAddCollectionModalOpened(false)}
+      />}
     </DetailPageLayout>
   )
 }
