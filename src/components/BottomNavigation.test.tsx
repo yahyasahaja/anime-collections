@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import BottomNavigation from './BottomNavigation';
-import { buildRenderWithRouter } from 'utils/test/build-render'
+import { buildRenderWithRouter } from 'utils/test/build-render';
 
 describe('BottomNavigation', () => {
   test('Renders bottom navigation title', () => {
