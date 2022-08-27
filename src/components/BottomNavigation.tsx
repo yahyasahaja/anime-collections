@@ -22,7 +22,7 @@ const BottomNavigation = ({ routes }: Props) => {
       display: flex;
       align-items: center;
       width: 100%;
-      height: var(--height-bottom-navigation);
+      height: var(--height-navigation);
       border-top: 1px solid #eaeaea;
       background: var(--color-subdued);
     `}>

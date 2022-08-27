@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import BottomNavigation from '../components/BottomNavigation';
-import MovieIcon from '../components/MovieIcon';
-import CollectionIcon from '../components/CollectionIcon';
+import BottomNavigation from 'components/BottomNavigation';
+import MovieIcon from 'icons/MovieIcon';
+import CollectionIcon from 'icons/CollectionIcon';
 
-type Props = {
-  children: React.ReactNode,
+type Props = React.PropsWithChildren<{
   title?: string,
-}
+}>
 
 // temporary
 const routes = [
@@ -28,12 +27,12 @@ const BasePageLayout = ({ children, title }: Props) => {
     <div css={css`
       max-width: 480px;
       margin: auto;
-      padding-bottom: var(--height-bottom-navigation);
-      min-height: calc(200vh - var(--height-bottom-navigation));
+      padding-bottom: var(--height-navigation);
+      min-height: calc(100vh - var(--height-navigation));
       background: white;
     `}>
-      <div css={css`
-        height: 36px;
+      <section css={css`
+        height: var(--height-navigation);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -43,7 +42,7 @@ const BasePageLayout = ({ children, title }: Props) => {
         background: var(--color-subdued);
       `}>
         <h1>{ title }</h1>
-      </div>
+      </section>
 
       {children}
 
