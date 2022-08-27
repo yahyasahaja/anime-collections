@@ -1,3 +1,4 @@
+// graphql instances
 export interface MediaCoverImage {
   extraLarge: string
 }
@@ -36,4 +37,13 @@ export interface Page {
 
 export interface PageQueryData {
   Page: Page
+}
+
+// collections
+export interface MediaCollection {
+  [idMal?: string]: Media
+}
+
+export interface Collections {
+  [collectionName?: string]: MediaCollection
 }

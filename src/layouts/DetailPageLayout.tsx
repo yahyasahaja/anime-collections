@@ -30,6 +30,7 @@ const BasePageLayout = ({ children, title }: Props) => {
         top: 0;
         border-bottom: 1px solid #eaeaea;
         background: var(--color-subdued);
+        z-index: 100;
       `}>
         <button onClick={handleBackButton} css={css`
           background: none;
