@@ -1,57 +1,54 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import { css } from '@emotion/react';
-import BasePageLayout from "../layouts/BasePageLayout";
+import { useQuery, gql } from '@apollo/client';
+
+import { Media, PageQueryData } from 'types/models';
+
+import BasePageLayout from "layouts/BasePageLayout";
 import MediaCard from 'components/MediaCard';
+import { PAGE_LIMIT } from 'configs/constants';
+
+export const PAGE_MEDIA_QUERY = gql`
+query ($page: Int, $perPage: Int) {
+  Page (page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    media {
+      id
+      title {
+        romaji
+      }
+      coverImage {
+        extraLarge
+      }
+    }
+  }
+}
+`;
 
 export default function AnimeList() {
+  const [ page ] = React.useState(1);
+  const { data, loading, error } = useQuery<PageQueryData>(PAGE_MEDIA_QUERY, { variables: { page, perPage: PAGE_LIMIT } });
+
+  console.log(data, loading, error)
+  console.log(data?.Page)
   return (
     <BasePageLayout title="Anime List" >
       <section css={css`
-        display: grid;
-        grid-template-columns: auto auto;
         padding: 10px;
       `}>
-        <MediaCard media={{
-          coverImage: {
-            extraLarge: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx463-QDnETPoHp9oD.jpg'
-          },
-          title: {
-            romaji: "One piece"
-          }
-        }}/>
-        <MediaCard media={{
-          coverImage: {
-            extraLarge: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx463-QDnETPoHp9oD.jpg'
-          },
-          title: {
-            romaji: "One piece"
-          }
-        }}/>
-        <MediaCard media={{
-          coverImage: {
-            extraLarge: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx463-QDnETPoHp9oD.jpg'
-          },
-          title: {
-            romaji: "One piece"
-          }
-        }}/>
-        <MediaCard media={{
-          coverImage: {
-            extraLarge: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx463-QDnETPoHp9oD.jpg'
-          },
-          title: {
-            romaji: "One piece"
-          }
-        }}/>
-        <MediaCard media={{
-          coverImage: {
-            extraLarge: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx463-QDnETPoHp9oD.jpg'
-          },
-          title: {
-            romaji: "One piece"
-          }
-        }}/>
+        {data?.Page?.media?.map((media: Media) => {
+          console.log('woi')
+          return <MediaCard media={media}/>
+        })}
       </section>
+      { loading && <div>Loading</div>}
     </BasePageLayout>
   )
 }

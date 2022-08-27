@@ -16,16 +16,18 @@ const BasePageLayout = ({ media, ...attributes }: Props) => {
         overflow: hidden;
         box-shadow: 0px 1px 30px gainsboro;
       `}>
-        <img
-          css={css`
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: center;
-          `}
-          src={media.coverImage.extraLarge}
-          alt="anime cover"
-        />
+        <div>
+          <img
+            css={css`
+              width: 100%;
+              height: 250px;
+              object-fit: cover;
+              object-position: center;
+            `}
+            src={media.coverImage.extraLarge}
+            alt="anime cover"
+          />
+        </div>
         <h2 css={css`
           height: 30px;
           font-size: 18px;
@@ -34,6 +36,8 @@ const BasePageLayout = ({ media, ...attributes }: Props) => {
           overflow: hidden;
           white-space: nowrap;
           text-align: center;
+          max-width: 80%;
+          margin: auto;
         `}>{media.title.romaji}</h2>
       </div>
     </div>
