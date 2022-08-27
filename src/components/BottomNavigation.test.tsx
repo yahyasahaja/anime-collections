@@ -4,7 +4,6 @@ import { buildRenderWithRouter } from 'utils/test/build-render'
 
 describe('BottomNavigation', () => {
   test('Renders bottom navigation title', () => {
-    window.location.href = '/anime'
     const routes = [
       {
         title: 'Anime',
@@ -28,7 +27,6 @@ describe('BottomNavigation', () => {
   });
 
   test('Renders selected icon correctly', () => {
-    window.location.href = '/anime'
     const routes = [
       {
         title: 'Anime',
