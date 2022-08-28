@@ -59,7 +59,6 @@ export default function AnimeList() {
   return (
     <BasePageLayout title="Anime List" >
       <InfiniteScroll
-        css={css`padding: 10px`}
         dataLength={animes.length}
         next={fetchNext}
         hasMore={hasMore}

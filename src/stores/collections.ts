@@ -14,21 +14,34 @@ declare global {
 window.storage = localForageCollectionsStore;
 
 export interface CollectionStore {
+  // state
   collections: Collections
+
+  // getters
   getCollectionNames: () => string[]
   getMediaCollectionByCollectionName: (collectionName: string) => Promise<MediaCollection | null>
+  getCollectionNamesByIdMal: (idMal: string) => string[]
+
+  // utilities
+  setStorage: (key: string, value: MediaCollection) => Promise<void>
   checkMediaExistsInCollection: (collectionName: string, media: Media) => Promise<Media | undefined>
+
+  // mutations
   createMediaCollection: (collectionName: string) => Promise<MediaCollection>
   putMediaToCollections: (collectionName: string, medias: Media[]) => Promise<MediaCollection>
   removeCollectionByName: (name: string) => Promise<string>
   updateCollectionName: (prev: string, next: string) => Promise<MediaCollection | null>
-  setStorage: (key: string, value: MediaCollection) => Promise<void>
-  refreshCollections: () => Promise<void>
   removeMediaFromCollection: (medias: Media[], collectionName: string) => Promise<void>
+
+  // actions
+  refreshCollections: () => Promise<void>
 }
 
 export const useCollectionStore = create<CollectionStore>()((set, get) => ({
+  // state
   collections: {},
+
+  // getters
   getCollectionNames: () => Object.keys(get().collections),
   getMediaCollectionByCollectionName: async (collectionName: string) => {
     return await localForageCollectionsStore.getItem<MediaCollection>(collectionName);
@@ -37,16 +50,12 @@ export const useCollectionStore = create<CollectionStore>()((set, get) => ({
     const mediaCollection = await get().getMediaCollectionByCollectionName(collectionName);
     return mediaCollection?.[media.idMal];
   },
-
-  refreshCollections: async () => {
-    const collections: Collections = {};
-    await localForageCollectionsStore.iterate<MediaCollection, void>((value, key) => {
-      collections[key] = value;
-    });
-    set(() => ({ collections }));
+  getCollectionNamesByIdMal: (idMal: string) => {
+    const collections = get().collections;
+    return Object.keys(collections).filter(name => !!collections[name][idMal]);
   },
 
-  // utility
+  // utilities
   setStorage: async (key: string, value: MediaCollection) => {
     await localForageCollectionsStore.setItem(key, value);
     get().refreshCollections();
@@ -88,5 +97,14 @@ export const useCollectionStore = create<CollectionStore>()((set, get) => ({
     await get().setStorage(next, mediaCollection);
 
     return mediaCollection;
-  }
+  },
+
+  // actions
+  refreshCollections: async () => {
+    const collections: Collections = {};
+    await localForageCollectionsStore.iterate<MediaCollection, void>((value, key) => {
+      collections[key] = value;
+    });
+    set(() => ({ collections }));
+  },
 }));

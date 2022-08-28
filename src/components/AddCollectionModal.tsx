@@ -25,7 +25,7 @@ const AddCollectionModal = ({ onDone }: Props) => {
 
   return (
     <Modal title="Add Collection">
-      <div css={css`padding: 10px; padding-right: 0; width: 100%`}>
+      <div css={css`padding: 10px; width: 100%`}>
         <TextField
           id="anime-collection"
           name="anime-collection"

@@ -12,6 +12,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Button from 'components/Button';
 import CollectionIcon from 'icons/CollectionIcon';
 import AddAnimeToCollectionModal from 'components/AddAnimeToCollectionModal';
+import { useCollectionStore } from 'stores/collections';
+import CollectionCard from 'components/CollectionCard';
 
 export const PAGE_MEDIA_QUERY = gql`
 query ($idMal: Int) {
@@ -36,10 +38,29 @@ export default function AnimeDetail() {
   const { id } = useParams();
   const { data, loading } = useQuery<MediaQueryData>(PAGE_MEDIA_QUERY, { variables: { idMal: id } });
 
+  const { collections, refreshCollections, getCollectionNamesByIdMal } = useCollectionStore(state => ({
+    collections: state.collections,
+    getCollectionNamesByIdMal: state.getCollectionNamesByIdMal,
+    refreshCollections: state.refreshCollections,
+  }));
+
+  // state
   const [ isAddCollectionModalOpened, setIsAddCollectionModalOpened ] = React.useState(false);
 
   const media = React.useMemo(() => data?.Media, [data]);
   const medias = React.useMemo(() => [media], [media]);
+
+  const collectionNames = React.useMemo(() => {
+    const idMal = media?.idMal;
+    if (idMal) return getCollectionNamesByIdMal(idMal.toString());
+    return [];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [collections, media, getCollectionNamesByIdMal]);
+
+  // did mount
+  React.useEffect(() => {
+    (async () => await refreshCollections())();
+  }, [refreshCollections]);
 
   return (
     <DetailPageLayout title={media?.title?.romaji || 'Anime Detail'} >
@@ -106,6 +127,31 @@ export default function AnimeDetail() {
             <Button onClick={() => setIsAddCollectionModalOpened(true)}>
               <CollectionIcon css={css`width: 24px; margin-right: 10px`} fill="white" /> Add to collection
             </Button>
+
+            { collectionNames.length > 0
+              && (
+                <React.Fragment>
+                  <h3 css={css`
+                    font-weight: bold;
+                    font-size: 24px;
+                    margin: 20px 20px;
+                    margin-top: 50px;
+                  `}>Collections</h3>
+
+                  <section>
+                    {collectionNames.map((name, i) => {
+                      return (
+                        <CollectionCard
+                          key={i}
+                          collectionName={name}
+                          mediaCollection={collections[name]}
+                        />
+                      )
+                    })}
+                  </section>
+                </React.Fragment>
+              )
+            }
           </div>
         </div>
       ) }
