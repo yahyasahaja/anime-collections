@@ -26,7 +26,12 @@ const CollectionDetail = () => {
 
   return (
     <DetailPageLayout title={`Collection ${collectionName}`}>
-      <section>
+      <section css={css`
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+        padding: 20px;
+      `}>
         {medias.map((media, i) => {
           return (
             <MediaCard

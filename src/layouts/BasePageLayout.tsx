@@ -47,6 +47,7 @@ const BasePageLayout = ({ children, title, postfix }: Props) => {
         top: 0;
         border-bottom: 1px solid #eaeaea;
         background: var(--color-subdued);
+        z-index: 100;
       `}>
         {prefix}
         <h1 css={css`display: flex; align-items: center`}>{ title }</h1>

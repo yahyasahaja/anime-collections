@@ -73,6 +73,7 @@ export default function AnimeDetail() {
               height: 250px;
               object-fit: cover;
               object-position: center;
+              display: block;
             `}
             src={media.bannerImage}
             placeholderSrc="/images/image-placeholder.jpeg"
