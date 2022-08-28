@@ -11,6 +11,7 @@
       "media": [
         {
           "id": 1,
+          "idMal": 1,
           "title": {
             "romaji": "Cowboy Bebop"
           },
@@ -20,6 +21,7 @@
         },
         {
           "id": 5,
+          "idMal": 5,
           "title": {
             "romaji": "Cowboy Bebop: Tengoku no Tobira"
           },
@@ -29,6 +31,7 @@
         },
         {
           "id": 6,
+          "idMal": 6,
           "title": {
             "romaji": "TRIGUN"
           },
@@ -38,6 +41,7 @@
         },
         {
           "id": 7,
+          "idMal": 7,
           "title": {
             "romaji": "Witch Hunter ROBIN"
           },
@@ -47,6 +51,7 @@
         },
         {
           "id": 8,
+          "idMal": 8,
           "title": {
             "romaji": "Bouken Ou Beet"
           },
@@ -56,6 +61,7 @@
         },
         {
           "id": 15,
+          "idMal": 15,
           "title": {
             "romaji": "Eyeshield 21"
           },
@@ -65,6 +71,7 @@
         },
         {
           "id": 16,
+          "idMal": 16,
           "title": {
             "romaji": "Hachimitsu to Clover"
           },
@@ -74,6 +81,7 @@
         },
         {
           "id": 17,
+          "idMal": 17,
           "title": {
             "romaji": "Hungry Heart: Wild Striker"
           },
@@ -83,6 +91,7 @@
         },
         {
           "id": 18,
+          "idMal": 18,
           "title": {
             "romaji": "Initial D FOURTH STAGE"
           },
@@ -92,6 +101,7 @@
         },
         {
           "id": 19,
+          "idMal": 19,
           "title": {
             "romaji": "MONSTER"
           },
@@ -101,6 +111,7 @@
         },
         {
           "id": 20,
+          "idMal": 20,
           "title": {
             "romaji": "NARUTO"
           },
@@ -110,6 +121,7 @@
         },
         {
           "id": 21,
+          "idMal": 21,
           "title": {
             "romaji": "ONE PIECE"
           },
@@ -119,6 +131,7 @@
         },
         {
           "id": 22,
+          "idMal": 22,
           "title": {
             "romaji": "Tennis no Ouji-sama"
           },
@@ -128,6 +141,7 @@
         },
         {
           "id": 23,
+          "idMal": 23,
           "title": {
             "romaji": "Ring ni Kakero 1"
           },
@@ -137,6 +151,7 @@
         },
         {
           "id": 24,
+          "idMal": 24,
           "title": {
             "romaji": "School Rumble"
           },
@@ -146,6 +161,7 @@
         },
         {
           "id": 25,
+          "idMal": 25,
           "title": {
             "romaji": "Sunabouzu"
           },
@@ -155,6 +171,7 @@
         },
         {
           "id": 26,
+          "idMal": 26,
           "title": {
             "romaji": "TEXHNOLYZE"
           },
@@ -164,6 +181,7 @@
         },
         {
           "id": 27,
+          "idMal": 27,
           "title": {
             "romaji": "Trinity Blood"
           },
@@ -173,6 +191,7 @@
         },
         {
           "id": 28,
+          "idMal": 28,
           "title": {
             "romaji": "Yakitate!! Japan"
           },
@@ -182,6 +201,7 @@
         },
         {
           "id": 29,
+          "idMal": 29,
           "title": {
             "romaji": "Zipang"
           },

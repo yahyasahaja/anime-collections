@@ -34,6 +34,7 @@ const TextField = ({ id, value, label, placeholder, name = '', onChange }: Props
             margin-top: 10px;
             border-radius: 10px;
           `}
+          id={id}
           name={name}
           value={value}
           placeholder={placeholder}

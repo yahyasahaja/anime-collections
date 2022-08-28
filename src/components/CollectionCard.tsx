@@ -19,10 +19,7 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
 
   const media = React.useMemo(() => {
     let idMal = '';
-    for (idMal in mediaCollection) {
-      if (mediaCollection.hasOwnProperty(idMal)) continue;
-      else break;
-    }
+    for (idMal in mediaCollection) break;
 
     return mediaCollection[idMal] || null;
   }, [mediaCollection]);
