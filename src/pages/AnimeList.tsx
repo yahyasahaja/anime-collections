@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { css } from '@emotion/react';
 import { useQuery, gql } from '@apollo/client';
 
 import { Media, PageQueryData } from 'types/models';
