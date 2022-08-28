@@ -34,7 +34,7 @@ const CollectionList = () => {
       center; flex: 1;
       justify-content: flex-end;
     `}>
-      <button onClick={() => setIsAddModalActive(true)} css={css`
+      <button data-testid="add-collection-btn" onClick={() => setIsAddModalActive(true)} css={css`
         width: 50px;
         display: flex;
         align-items: center;

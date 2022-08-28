@@ -5,12 +5,10 @@ import { css } from '@emotion/react';
 
 import DetailPageLayout from "layouts/DetailPageLayout";
 import { useCollectionStore } from 'stores/collections';
-import EditCollectionModal from 'components/EditCollectionModal';
 import MediaCard from 'components/MediaCard';
 
 const CollectionDetail = () => {
   const { collectionName } = useParams();
-  const [ isEditModalActive, setIsEditModalActive ] = React.useState(false);
   const { collections, refreshCollections } = useCollectionStore(state => ({
     collections: state.collections,
     refreshCollections: state.refreshCollections,
@@ -25,10 +23,6 @@ const CollectionDetail = () => {
     (async () => await refreshCollections())();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const handleEditCollectionModalClick = React.useCallback(() => {
-    setIsEditModalActive(false);
-  }, [setIsEditModalActive]);
 
   return (
     <DetailPageLayout title={`Collection ${collectionName}`}>
@@ -66,11 +60,6 @@ const CollectionDetail = () => {
           </div>
         )}
       </section>
-      {
-        isEditModalActive
-        && collectionName
-        && <EditCollectionModal collectionName={collectionName} onDone={handleEditCollectionModalClick} />
-      }
     </DetailPageLayout>
   )
 };

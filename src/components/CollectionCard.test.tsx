@@ -6,8 +6,9 @@ import MediaQueryResult from 'stubs/media-query-1.json';
 import CollectionCard from './CollectionCard';
 
 describe('CollectionCard', () => {
+  const media = MediaQueryResult.data.Media;
   const mediaCollection = {
-    [MediaQueryResult.data.Media.idMal]: MediaQueryResult.data.Media,
+    [media.idMal]: media,
   }
 
   test('Should be able to open and close delete modal', async () => {

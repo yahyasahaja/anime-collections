@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import flushPromises from 'flush-promises';
 
 // local dependencies
 import { buildRenderWithRouter } from 'utils/test/build-render';
