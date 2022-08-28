@@ -36,7 +36,7 @@ const BasePageLayout = ({ media, ...attributes }: Props) => (
         />
       </div>
       <h2 css={css`
-        height: 30px;
+        height: 50px;
         font-size: 18px;
         padding: 10px;
         text-overflow: ellipsis;

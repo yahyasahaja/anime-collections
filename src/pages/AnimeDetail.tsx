@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { useQuery, gql } from '@apollo/client';
 import { sanitize } from 'dompurify';
-import { Media, MediaQueryData } from 'types/models';
+import { MediaQueryData } from 'types/models';
 
 import DetailPageLayout from "layouts/DetailPageLayout";
 import Spinner from 'components/Spinner';

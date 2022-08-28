@@ -32,6 +32,7 @@ const Modal = ({ children, title }: Props) => {
           border-bottom: 1px solid #cecece;
           color: var(--color-secondary);
           padding: 10px;
+          height: 40px;
         `}>{title}</div>
         <div>
           { children }
