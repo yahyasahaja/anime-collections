@@ -54,7 +54,7 @@ const EditCollectionModal = ({ collectionName, onDone }: Props) => {
           }
         `}>Cancel</button>
         <button onClick={handleAddCollection} css={css`
-          color: var(--color-danger);
+          color: var(--color-primary);
           font-weight: bold;
           width: 100%;
           border: none;
