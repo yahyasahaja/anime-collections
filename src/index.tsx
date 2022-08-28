@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client';
 
 import { ANILIST_GRAPHQL_URL } from 'configs/constants';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 import './index.css';
 import App from './App';
@@ -39,3 +40,5 @@ root.render(
     </BrowserRouter>
   </ApolloProvider>
 );
+
+serviceWorkerRegistration.register();

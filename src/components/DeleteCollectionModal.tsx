@@ -34,6 +34,7 @@ const DeleteCollectionModal = ({ collectionName, onDone }: Props) => {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 10px;
       `}>
         <span>Are you sure you want to delete <b>{collectionName}</b> ?</span>
       </div>

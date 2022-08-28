@@ -36,6 +36,7 @@ const DeleteMediaFromCollectionModal = ({ collectionName, media, onDone }: Props
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 10px;
       `}>
         <span>Are you sure you want to remove <b>{media.title.romaji}</b> from <b>{collectionName}</b> ?</span>
       </div>
