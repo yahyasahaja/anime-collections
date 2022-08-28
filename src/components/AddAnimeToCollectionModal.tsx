@@ -51,7 +51,6 @@ const AddAnimeToCollectionModal = ({ onDone, medias }: Props) => {
           {collectionNames.map((name, i) => {
             const checked = medias?.some((media) => {
               const result = !!collections?.[name]?.[media?.idMal || ''];
-              console.log(result, name, collections?.[name], media?.idMal)
               return result;
             })
 

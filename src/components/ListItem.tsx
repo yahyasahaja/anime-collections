@@ -12,7 +12,6 @@ type Props = React.PropsWithChildren<{
 const ListItem = ({ id, checked = false, children, onClick }: Props) => {
   const selectedColor = checked ? 'var(--color-selected-background)' : 'white';
   const handleClick = React.useCallback(() => {
-    console.log('kke sini')
     onClick(id, checked);
   }, [id, onClick, checked])
 

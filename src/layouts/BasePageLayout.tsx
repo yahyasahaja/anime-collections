@@ -30,7 +30,7 @@ const BasePageLayout = ({ children, title }: Props) => {
       max-width: 480px;
       margin: auto;
       padding-bottom: var(--height-navigation);
-      min-height: calc(100vh - var(--height-navigation));
+      min-height: 100vh;
       background: white;
     `}>
       <section css={css`
