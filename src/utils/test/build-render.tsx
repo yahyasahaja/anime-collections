@@ -15,10 +15,10 @@ export const buildRenderWithRouter = ({ path = '/animes', component, mocks }: Pa
     <MockedProvider mocks={mocks} addTypename={false}>
       <MemoryRouter initialEntries={[path]} >
         <Routes>
-          <Route path="/animes" element={component} />
           <Route path="/animes/:id" element={component} />
+          <Route path="/animes" element={component} />
+          <Route path="/collections/:collectionName" element={component} />
           <Route path="/collections" element={component} />
-          <Route path="/collections/:id" element={component} />
         </Routes>
       </MemoryRouter>
     </MockedProvider>

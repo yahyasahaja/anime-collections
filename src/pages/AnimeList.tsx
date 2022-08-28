@@ -61,7 +61,7 @@ export default function AnimeList() {
         dataLength={animes.length}
         next={fetchNext}
         hasMore={hasMore}
-        loader={<Spinner />}
+        loader={<div />}
       >
         { animes.map((media: Media, i) => <MediaCard key={i} media={media}/>) }
       </InfiniteScroll>

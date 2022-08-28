@@ -15,7 +15,7 @@ import AddAnimeToCollectionModal from 'components/AddAnimeToCollectionModal';
 import { useCollectionStore } from 'stores/collections';
 import CollectionCard from 'components/CollectionCard';
 
-export const PAGE_MEDIA_QUERY = gql`
+export const MEDIA_QUERY = gql`
 query ($idMal: Int) {
   Media (idMal: $idMal) {
     id
@@ -36,7 +36,7 @@ query ($idMal: Int) {
 
 export default function AnimeDetail() {
   const { id } = useParams();
-  const { data, loading } = useQuery<MediaQueryData>(PAGE_MEDIA_QUERY, { variables: { idMal: id } });
+  const { data, loading } = useQuery<MediaQueryData>(MEDIA_QUERY, { variables: { idMal: id } });
 
   const { collections, refreshCollections, getCollectionNamesByIdMal } = useCollectionStore(state => ({
     collections: state.collections,
