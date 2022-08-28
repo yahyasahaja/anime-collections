@@ -5,6 +5,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 import { MediaCollection } from 'types/models';
+import DeleteCollectionModal from './DeleteCollectionModal';
+import EditCollectionModal from './EditCollectionModal';
 
 type Props = {
   collectionName: string,
@@ -12,6 +14,9 @@ type Props = {
 }
 
 const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Props) => {
+  const [ isDeleteModalActive, setIsDeleteModalActive ] = React.useState(false);
+  const [ isEditModalActive, setIsEditModalActive ] = React.useState(false);
+
   const media = React.useMemo(() => {
     let idMal = '';
     for (idMal in mediaCollection) {
@@ -23,8 +28,16 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
   }, [mediaCollection]);
 
   const mediaImage = React.useMemo(() =>
-    media?.bannerImage || media?.coverImage?.extraLarge || '/images/image-placholder.jpeg'
+    media?.bannerImage || media?.coverImage?.extraLarge || '/images/image-placeholder.jpeg'
   , [media]);
+
+  const handleDeleteCollectionModalClick = React.useCallback(() => {
+    setIsDeleteModalActive(false);
+  }, [setIsDeleteModalActive]);
+
+  const handleEditCollectionModalClick = React.useCallback(() => {
+    setIsEditModalActive(false);
+  }, [setIsEditModalActive]);
 
   return (
     <div {...attributes}  css={css`
@@ -36,7 +49,7 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
         overflow: hidden;
         box-shadow: 0px 1px 30px gainsboro;
       `}>
-        <Link to={`/animes/${media.idMal}`} css={css`
+        <Link to={`/collections/${collectionName}`} css={css`
           &:active {
             opacity: 0.5;
           }
@@ -68,22 +81,51 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
             width: 100%;
           `}>{collectionName}</h2>
         </Link>
-        <button css={css`
+        <div css={css`
           width: 100%;
-          display: block;
-          border: none;
-          border-top: 1px solid #ffadd3;
-          font-weight: bold;
-          color: var(--color-danger);
-          padding: 10px;
-          background: #ffeff6;
-          &:active {
-            opacity: 0.5;
-          }
+          display: flex;
+          border-top: 1px solid #d6d6d6;
+          background: var(--color-subdued);
         `}>
-          Delete
-        </button>
+          <button onClick={() => setIsDeleteModalActive(true)} css={css`
+            flex: 1;
+            display: block;
+            border: none;
+            font-weight: bold;
+            color: var(--color-danger);
+            padding: 10px;
+            background: none;
+            border-right: 1px solid #d6d6d6;
+            &:active {
+              opacity: 0.5;
+            }
+          `}>
+            Delete
+          </button>
+          <button onClick={() => setIsEditModalActive(true)} css={css`
+            flex: 1;
+            display: block;
+            border: none;
+            font-weight: bold;
+            color: var(--color-primary);
+            padding: 10px;
+            background: none;
+            &:active {
+              opacity: 0.5;
+            }
+          `}>
+            Edit
+          </button>
+        </div>
       </div>
+      { isDeleteModalActive && <DeleteCollectionModal
+        collectionName={collectionName}
+        onDone={handleDeleteCollectionModalClick}
+      />}
+      { isEditModalActive && <EditCollectionModal
+        collectionName={collectionName}
+        onDone={handleEditCollectionModalClick}
+      />}
     </div>
   )
 };
