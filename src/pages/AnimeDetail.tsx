@@ -8,12 +8,12 @@ import { MediaQueryData } from 'types/models';
 import DetailPageLayout from "layouts/DetailPageLayout";
 import Spinner from 'components/Spinner';
 import { useParams } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Button from 'components/Button';
 import CollectionIcon from 'icons/CollectionIcon';
 import AddAnimeToCollectionModal from 'components/AddAnimeToCollectionModal';
 import { useCollectionStore } from 'stores/collections';
 import CollectionCard from 'components/CollectionCard';
+import LazyLoadMediaImage from 'components/LazyLoadMediaImage';
 
 export const MEDIA_QUERY = gql`
 query ($idMal: Int) {
@@ -29,6 +29,8 @@ query ($idMal: Int) {
     genres
     coverImage {
       extraLarge
+      large
+      medium
     }
   }
 }
@@ -67,7 +69,7 @@ export default function AnimeDetail() {
       { loading && <Spinner /> }
       { media && (
         <div>
-          <LazyLoadImage
+          <LazyLoadMediaImage
             css={css`
               width: 100%;
               height: 250px;
@@ -75,16 +77,15 @@ export default function AnimeDetail() {
               object-position: center;
               display: block;
             `}
-            src={media.bannerImage}
-            placeholderSrc="/images/image-placeholder.jpeg"
-            alt="anime cover"
+            media={media}
+            useBanner={true}
           />
           <div css={css`
             margin-top: -125px;
             margin-left: 10px;
             position: absolute;
           `}>
-            <LazyLoadImage
+            <LazyLoadMediaImage
               css={css`
                 width: 100px;
                 height: 200px;
@@ -94,9 +95,8 @@ export default function AnimeDetail() {
                 overflow: hidden;
                 border-radius: 30px;
               `}
-              src={media.coverImage.extraLarge}
-              placeholderSrc="/images/image-placeholder.jpeg"
-              alt="anime cover"
+              media={media}
+              useCover={true}
             />
           </div>
           <div css={css`height: 100px`}>

@@ -2,10 +2,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { Media } from 'types/models';
 import DeleteMediaFromCollectionModal from './DeleteMediaFromCollectionModal';
+import LazyLoadMediaImage from './LazyLoadMediaImage';
 
 type Props = {
   media: Media
@@ -20,6 +20,10 @@ const MediaCard = ({ media, hasDeleteButton = false, collectionName = '', ...att
     setIsDeleteModalActive(false);
   }, [setIsDeleteModalActive]);
 
+  const sources = React.useMemo(() => {
+    return
+  }, [media])
+
   return (
     <div {...attributes} css={css`
       border-radius: 30px;
@@ -32,16 +36,15 @@ const MediaCard = ({ media, hasDeleteButton = false, collectionName = '', ...att
         }
       `}>
         <div>
-          <LazyLoadImage
+          <LazyLoadMediaImage
             css={css`
               width: 100%;
               height: 250px;
               object-fit: cover;
               object-position: center;
             `}
-            src={media.coverImage.extraLarge}
-            placeholderSrc="/images/image-placeholder.jpeg"
-            alt="anime cover"
+            media={media}
+            useCover={true}
           />
         </div>
         <h2 css={css`

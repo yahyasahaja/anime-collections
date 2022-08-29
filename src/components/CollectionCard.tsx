@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 
 import { MediaCollection } from 'types/models';
 import DeleteCollectionModal from './DeleteCollectionModal';
 import EditCollectionModal from './EditCollectionModal';
+import LazyLoadMediaImage from 'components/LazyLoadMediaImage';
 
 type Props = {
   collectionName: string,
@@ -23,10 +23,6 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
 
     return mediaCollection[idMal] || null;
   }, [mediaCollection]);
-
-  const mediaImage = React.useMemo(() =>
-    media?.bannerImage || media?.coverImage?.extraLarge || '/images/image-placeholder.jpeg'
-  , [media]);
 
   const handleDeleteCollectionModalClick = React.useCallback(() => {
     setIsDeleteModalActive(false);
@@ -52,16 +48,15 @@ const CollectionCard = ({ collectionName, mediaCollection, ...attributes }: Prop
           }
         `}>
           <div>
-            <LazyLoadImage
+            <LazyLoadMediaImage
               css={css`
                 width: 100%;
                 height: 100px;
                 object-fit: cover;
                 object-position: center;
               `}
-              src={mediaImage}
-              placeholderSrc="/images/image-placeholder.jpeg"
-              alt="anime cover"
+              media={media}
+              useBanner={true}
             />
           </div>
           <h2 css={css`

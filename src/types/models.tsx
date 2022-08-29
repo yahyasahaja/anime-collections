@@ -1,6 +1,8 @@
 // graphql instances
 export interface MediaCoverImage {
   extraLarge: string
+  large: string
+  medium: string
 }
 
 export interface MediaTitle {

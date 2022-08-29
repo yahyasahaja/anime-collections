@@ -28,6 +28,8 @@ query ($page: Int, $perPage: Int) {
       }
       coverImage {
         extraLarge
+        large
+        medium
       }
     }
   }
