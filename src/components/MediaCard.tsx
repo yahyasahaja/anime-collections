@@ -20,10 +20,6 @@ const MediaCard = ({ media, hasDeleteButton = false, collectionName = '', ...att
     setIsDeleteModalActive(false);
   }, [setIsDeleteModalActive]);
 
-  const sources = React.useMemo(() => {
-    return
-  }, [media])
-
   return (
     <div {...attributes} css={css`
       border-radius: 30px;
