@@ -20,13 +20,21 @@ These are the features provided:
 - Progressive Web App
 - GraphQL
 - State Management: Zustand
+- IndexedDB (have fallback to WebSQL and LocalStorage) for storing collections
 
 ## Libraries
 - Apollo GraphQL
 - Emotions (styling)
+- localforage
 
 ## Testing
 - Unit test using React Testing Library
+
+## Performance
+- Optimization for image sizes usage and lazyload
+- Code splitting
+- Service worker image caching
+- Apollo caching
 
 ## Deployment
 - Already deployed to https://mal-collections.netlify.app/animes
